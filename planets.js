@@ -11,7 +11,7 @@ const PLANETS = {
 
 let planetData = [];
 
-const regex = /(?:[XY] = ?-?\d+.\d+E\+\d+ ){2}/g;
+const regex = /[XY] = ?(-?\d\.\d+E\+\d*)(?=.*\s*.*EOE)/g;
 
 async function fetchPlanets(p) {
   const res = await fetch(
@@ -22,7 +22,7 @@ async function fetchPlanets(p) {
     fetchPlanets(p);
   } else {
     planetData.push(data);
-    console.log(regex.exec(data)[0]);
+    console.log(p + " : " + regex.exec(data));
   }
 }
 
