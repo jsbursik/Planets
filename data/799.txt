@@ -1,0 +1,165 @@
+API VERSION: 1.2
+API SOURCE: NASA/JPL Horizons API
+
+*******************************************************************************
+ Revised: September 30, 2021           Uranus                               799
+ 
+ PHYSICAL DATA:
+  Mass x10^24 (kg)      = 86.813          Density (g/cm^3)       =  1.271
+  Equat. radius (1 bar) = 25559+-4 km     Polar radius (km)      = 24973+-20
+  Vol. Mean Radius (km) = 25362+-12       Flattening             =  0.02293
+  Geometric Albedo      = 0.51
+  Sid. rot. period (III)= 17.24+-0.01 h   Sid. rot. rate (rad/s) = -0.000101237
+  Mean solar day, h     =~17.24           Rocky core mass (Mc/M) =  0.0012        
+  GM (km^3/s^2)         = 5793951.256     GM 1-sigma (km^3/s^2)  = +-4.3 
+  Equ. grav, ge (m/s^2) =  8.87           Pol. grav, gp (m/s^2)  =   9.19+-0.02
+  Visual magnitude V(1,0)= -7.11
+  Vis. mag. (opposition)=  +5.52          Obliquity to orbit     = 97.77 deg
+  Sidereal orbit period = 84.0120465 y    Sidereal orbit period  = 30685.4 d
+  Mean daily motion     = 0.01176904 dg/d Mean orbit velocity    =  6.8 km/s
+  Atmos. temp. (1 bar)  =  76+-2 K        Escape speed, km/s     =  21.3           
+  Aroche(ice)/Rp        =  2.20           Hill's sphere rad., Rp = 2700
+                                 Perihelion   Aphelion    Mean
+  Solar Constant (W/m^2)         4.09         3.39        3.71
+  Maximum Planetary IR (W/m^2)   0.72         0.55        0.63
+  Minimum Planetary IR (W/m^2)   0.72         0.55        0.63
+*******************************************************************************
+
+
+*******************************************************************************
+Ephemeris / API_USER Mon Apr  1 13:35:11 2024 Pasadena, USA      / Horizons
+*******************************************************************************
+Target body name: Uranus (799)                    {source: ura116}
+Center body name: Sun (10)                        {source: ura116}
+Center-site name: BODY CENTER
+*******************************************************************************
+Start time      : A.D. 2024-Mar-27 00:00:00.0000 TDB
+Stop  time      : A.D. 2024-Mar-28 00:00:00.0000 TDB
+Step-size       : 60 minutes
+*******************************************************************************
+Center geodetic : 0.0, 0.0, 0.0                   {E-lon(deg),Lat(deg),Alt(km)}
+Center cylindric: 0.0, 0.0, 0.0                   {E-lon(deg),Dxy(km),Dz(km)}
+Center radii    : 695700.0, 695700.0, 695700.0 km {Equator_a, b, pole_c}
+Output units    : KM-S
+Calendar mode   : Mixed Julian/Gregorian
+Output type     : GEOMETRIC cartesian states
+Output format   : 1 (position only)
+Reference frame : Ecliptic of J2000.0
+*******************************************************************************
+JDTDB
+   X     Y     Z
+*******************************************************************************
+$$SOE
+2460396.500000000 = A.D. 2024-Mar-27 00:00:00.0000 TDB 
+ X = 1.795529950855741E+09 Y = 2.317935444581312E+09 Z =-1.467070883894813E+07
+2460396.541666667 = A.D. 2024-Mar-27 01:00:00.0000 TDB 
+ X = 1.795510352128141E+09 Y = 2.317949351567687E+09 Z =-1.467040213344693E+07
+2460396.583333333 = A.D. 2024-Mar-27 02:00:00.0000 TDB 
+ X = 1.795490753336639E+09 Y = 2.317963258379223E+09 Z =-1.467009543571055E+07
+2460396.625000000 = A.D. 2024-Mar-27 03:00:00.0000 TDB 
+ X = 1.795471154480285E+09 Y = 2.317977165015579E+09 Z =-1.466978874970663E+07
+2460396.666666667 = A.D. 2024-Mar-27 04:00:00.0000 TDB 
+ X = 1.795451555557829E+09 Y = 2.317991071476477E+09 Z =-1.466948207935655E+07
+2460396.708333333 = A.D. 2024-Mar-27 05:00:00.0000 TDB 
+ X = 1.795431956567715E+09 Y = 2.318004977761705E+09 Z =-1.466917542851079E+07
+2460396.750000000 = A.D. 2024-Mar-27 06:00:00.0000 TDB 
+ X = 1.795412357508081E+09 Y = 2.318018883871124E+09 Z =-1.466886880092347E+07
+2460396.791666667 = A.D. 2024-Mar-27 07:00:00.0000 TDB 
+ X = 1.795392758376761E+09 Y = 2.318032789804671E+09 Z =-1.466856220022333E+07
+2460396.833333333 = A.D. 2024-Mar-27 08:00:00.0000 TDB 
+ X = 1.795373159171288E+09 Y = 2.318046695562366E+09 Z =-1.466825562988520E+07
+2460396.875000000 = A.D. 2024-Mar-27 09:00:00.0000 TDB 
+ X = 1.795353559888905E+09 Y = 2.318060601144309E+09 Z =-1.466794909319746E+07
+2460396.916666667 = A.D. 2024-Mar-27 10:00:00.0000 TDB 
+ X = 1.795333960526575E+09 Y = 2.318074506550689E+09 Z =-1.466764259323144E+07
+2460396.958333333 = A.D. 2024-Mar-27 11:00:00.0000 TDB 
+ X = 1.795314361080999E+09 Y = 2.318088411781787E+09 Z =-1.466733613280880E+07
+2460397.000000000 = A.D. 2024-Mar-27 12:00:00.0000 TDB 
+ X = 1.795294761548634E+09 Y = 2.318102316837974E+09 Z =-1.466702971446979E+07
+2460397.041666667 = A.D. 2024-Mar-27 13:00:00.0000 TDB 
+ X = 1.795275161925721E+09 Y = 2.318116221719712E+09 Z =-1.466672334044230E+07
+2460397.083333333 = A.D. 2024-Mar-27 14:00:00.0000 TDB 
+ X = 1.795255562208313E+09 Y = 2.318130126427557E+09 Z =-1.466641701261282E+07
+2460397.125000000 = A.D. 2024-Mar-27 15:00:00.0000 TDB 
+ X = 1.795235962392307E+09 Y = 2.318144030962150E+09 Z =-1.466611073250031E+07
+2460397.166666667 = A.D. 2024-Mar-27 16:00:00.0000 TDB 
+ X = 1.795216362473480E+09 Y = 2.318157935324224E+09 Z =-1.466580450123155E+07
+2460397.208333333 = A.D. 2024-Mar-27 17:00:00.0000 TDB 
+ X = 1.795196762447529E+09 Y = 2.318171839514590E+09 Z =-1.466549831952298E+07
+2460397.250000000 = A.D. 2024-Mar-27 18:00:00.0000 TDB 
+ X = 1.795177162310112E+09 Y = 2.318185743534135E+09 Z =-1.466519218766558E+07
+2460397.291666667 = A.D. 2024-Mar-27 19:00:00.0000 TDB 
+ X = 1.795157562056891E+09 Y = 2.318199647383817E+09 Z =-1.466488610551620E+07
+2460397.333333333 = A.D. 2024-Mar-27 20:00:00.0000 TDB 
+ X = 1.795137961683583E+09 Y = 2.318213551064648E+09 Z =-1.466458007249582E+07
+2460397.375000000 = A.D. 2024-Mar-27 21:00:00.0000 TDB 
+ X = 1.795118361186004E+09 Y = 2.318227454577688E+09 Z =-1.466427408759665E+07
+2460397.416666667 = A.D. 2024-Mar-27 22:00:00.0000 TDB 
+ X = 1.795098760560137E+09 Y = 2.318241357924028E+09 Z =-1.466396814939725E+07
+2460397.458333333 = A.D. 2024-Mar-27 23:00:00.0000 TDB 
+ X = 1.795079159802192E+09 Y = 2.318255261104766E+09 Z =-1.466366225609350E+07
+2460397.500000000 = A.D. 2024-Mar-28 00:00:00.0000 TDB 
+ X = 1.795059558908695E+09 Y = 2.318269164120978E+09 Z =-1.466335640554166E+07
+$$EOE
+*******************************************************************************
+ 
+TIME
+
+  Barycentric Dynamical Time ("TDB" or T_eph) output was requested. This
+continuous coordinate time is equivalent to the relativistic proper time
+of a clock at rest in a reference frame co-moving with the solar system
+barycenter but outside the system's gravity well. It is the independent
+variable in the solar system relativistic equations of motion.
+
+  TDB runs at a uniform rate of one SI second per second and is independent
+of irregularities in Earth's rotation.
+ 
+CALENDAR SYSTEM
+
+  Mixed calendar mode was active such that calendar dates after AD 1582-Oct-15
+(if any) are in the modern Gregorian system. Dates prior to 1582-Oct-5 (if any)
+are in the Julian calendar system, which is automatically extended for dates
+prior to its adoption on 45-Jan-1 BC.  The Julian calendar is useful for
+matching historical dates. The Gregorian calendar more accurately corresponds
+to the Earth's orbital motion and seasons. A "Gregorian-only" calendar mode is
+available if such physical events are the primary interest.
+
+REFERENCE FRAME AND COORDINATES
+
+  Ecliptic at the standard reference epoch
+
+    Reference epoch: J2000.0
+    X-Y plane: adopted Earth orbital plane at the reference epoch
+               Note: IAU76 obliquity of 84381.448 arcseconds wrt ICRF X-Y plane
+    X-axis   : ICRF
+    Z-axis   : perpendicular to the X-Y plane in the directional (+ or -) sense
+               of Earth's north pole at the reference epoch.
+
+  Symbol meaning:
+
+    JDTDB    Julian Day Number, Barycentric Dynamical Time
+      X      X-component of position vector (km)
+      Y      Y-component of position vector (km)
+      Z      Z-component of position vector (km)
+
+ABERRATIONS AND CORRECTIONS
+
+ Geometric state vectors have NO corrections or aberrations applied.
+
+Computations by ...
+
+    Solar System Dynamics Group, Horizons On-Line Ephemeris System
+    4800 Oak Grove Drive, Jet Propulsion Laboratory
+    Pasadena, CA  91109   USA
+
+    General site: https://ssd.jpl.nasa.gov/
+    Mailing list: https://ssd.jpl.nasa.gov/email_list.html
+    System news : https://ssd.jpl.nasa.gov/horizons/news.html
+    User Guide  : https://ssd.jpl.nasa.gov/horizons/manual.html
+    Connect     : browser        https://ssd.jpl.nasa.gov/horizons/app.html#/x
+                  API            https://ssd-api.jpl.nasa.gov/doc/horizons.html
+                  command-line   telnet ssd.jpl.nasa.gov 6775
+                  e-mail/batch   https://ssd.jpl.nasa.gov/ftp/ssd/hrzn_batch.txt
+                  scripts        https://ssd.jpl.nasa.gov/ftp/ssd/SCRIPTS
+    Author      : Jon.D.Giorgini@jpl.nasa.gov
+*******************************************************************************
