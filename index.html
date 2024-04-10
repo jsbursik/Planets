@@ -4,9 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.2/p5.min.js"></script>
-    <script src="planets.js"></script>
+    <script src="p5.min.js"></script>
+    <script src="planets.js" defer></script>
     <title>Planets</title>
   </head>
-  <body></body>
+  <body>
+    <div class="sliders">
+      <label for="dist_slider">Distance Scale: <span id="dist_val"></span></label>
+      <input type="range" name="dist_slider" id="dist_slider" min="100" max="10000" value="100" />
+      <label for="rad_slider">Radius Scale: <span id="rad_val"></span></label>
+      <input type="range" name="rad_slider" id="rad_slider" min="10" max="100" value="10" />
+    </div>
+  </body>
 </html>
