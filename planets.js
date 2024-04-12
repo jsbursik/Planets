@@ -4,27 +4,10 @@ const TIMEFRAME = getTimeframe();
 const HEIGHT = window.innerHeight;
 const WIDTH = window.innerWidth;
 
-let planetData = [];
+let planetData = [{ body: "Sun", radius: 695700, coords: { x: 0, y: 0 } }];
 
-const dist_slider = document.getElementById("dist_slider");
-const rad_slider = document.getElementById("rad_slider");
-const dist_value = document.getElementById("dist_val");
-const rad_value = document.getElementById("rad_val");
-
-dist_value.textContent = dist_slider.value;
-rad_value.textContent = rad_slider.value;
-
-let dist_scale = 1000 * dist_slider.value;
-let rad_scale = 10 * rad_slider.value;
-
-dist_slider.addEventListener("input", () => {
-  dist_value.textContent = dist_slider.value;
-  dist_scale = 1000 * dist_slider.value;
-});
-rad_slider.addEventListener("input", () => {
-  rad_value.textContent = rad_slider.value;
-  rad_scale = 10 * rad_slider.value;
-});
+let dist_scale = HEIGHT / 15.8;
+let rad_scale = HEIGHT / 183.4;
 
 function getTimeframe() {
   const DATE = new Date();
@@ -35,15 +18,6 @@ function getTimeframe() {
     start: FORMATTER.format(DATE.setDate(DATE.getDate() - 1))
       .split("/")
       .join("-"),
-  };
-}
-
-function parseCoords(c) {
-  // Example Coords: X = 1.339879730370736E+08 Y =-1.595979233568153E+08
-  const r = /[XY] = ?(-?\d+.\d+E\+\d+)/;
-  return {
-    x: parseFloat(c[0].match(r)[1]),
-    y: parseFloat(c[1].match(r)[1]),
   };
 }
 
@@ -62,6 +36,27 @@ async function fetchPlanet(p) {
     });
 }
 
+function parseCoords(c) {
+  // Example Coords: X = 1.339879730370736E+08 Y =-1.595979233568153E+08
+  const reg = /[XY] = ?(-?\d+.\d+E\+\d+)/;
+
+  return {
+    x: parseFloat(c[0].match(reg)[1]),
+    y: parseFloat(c[1].match(reg)[1]),
+  };
+}
+
+function scaleDistance(coord) {
+  if (coord == 0) return 0;
+  let scale = 10000000;
+  return coord < 0 ? Math.log(abs(coord / scale)) * -1 * dist_scale : Math.log(coord / scale) * dist_scale;
+}
+
+function scaleRadius(radius) {
+  let scale = 1000;
+  return Math.log((radius / scale) * 2) * rad_scale;
+}
+
 for (let i = 0; i < PLANETS.length; i++) {
   fetchPlanet(PLANETS[i])
     .then((data) => {
@@ -69,7 +64,7 @@ for (let i = 0; i < PLANETS.length; i++) {
       const radRegex = /(?<=Vol\. Mean Radius \(km\)\s*=\s*)\d+/gi;
       const coordsRegex = /[XY] = ?(-?\d\.\d+E\+\d*)(?=.*\s*.*EOE)/g;
       planetData.push({
-        planet: data.match(nameRegex)[0],
+        body: data.match(nameRegex)[0],
         radius: data.match(radRegex)[0],
         coords: parseCoords(data.match(coordsRegex)),
       });
@@ -81,20 +76,35 @@ for (let i = 0; i < PLANETS.length; i++) {
 }
 
 function setup() {
-  createCanvas(WIDTH, HEIGHT);
+  createCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
-  background(220);
-  translate(WIDTH / 2, HEIGHT / 2);
-  circle(0, 0, 695700 / rad_scale);
+  background(255);
+  translate(windowWidth / 2, windowHeight / 2);
   for (let i = 0; i < planetData.length; i++) {
-    let X = planetData[i].coords.x / dist_scale;
-    let Y = planetData[i].coords.y / dist_scale;
-    let R = planetData[i].radius / rad_scale;
+    let X = scaleDistance(planetData[i].coords.x);
+    let Y = scaleDistance(planetData[i].coords.y);
+    let D = scaleRadius(planetData[i].radius);
+    let orbit = Math.hypot(X, Y);
+    // Draw Orbits
+    noFill();
+    stroke(0, 15);
+    circle(0, 0, orbit * 2);
+    // Draw Bodies
     fill(255);
-    circle(X, Y, R * 2);
+    strokeWeight(2);
+    stroke(0);
+    circle(X, Y, D);
+    //Draw Labels
+    noStroke();
     fill(0);
-    text(planetData[i].planet, X, Y - (10 + R));
+    text(planetData[i].body, X, Y - (10 + D / 2));
   }
+}
+
+function windowResized() {
+  dist_scale = windowHeight / 15.8;
+  rad_scale = windowHeight / 183.4;
+  resizeCanvas(windowWidth, windowHeight);
 }
