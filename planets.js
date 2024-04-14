@@ -4,13 +4,17 @@ const TIMEFRAME = getTimeframe();
 const HEIGHT = window.innerHeight;
 const WIDTH = window.innerWidth;
 
+const DARK_MODE_TOGGLE = document.getElementById("dark-mode-toggle");
+let darkMode = DARK_MODE_TOGGLE.checked;
+
 let planetData = [{ body: "Sun", radius: 695700, coords: { x: 0, y: 0 } }];
 
 let dist_scale = HEIGHT / 15.8;
 let rad_scale = HEIGHT / 183.4;
 
 function getTimeframe() {
-  const DATE = new Date();
+  const DATE = new Date("2021-12-18");
+  console.log(DATE);
   const FORMATTER = new Intl.DateTimeFormat("en-US", { year: "numeric", month: "2-digit", day: "2-digit" });
 
   return {
@@ -46,12 +50,14 @@ function parseCoords(c) {
   };
 }
 
+// Logarithmic scaling doesn't look good, need to replace this.
 function scaleDistance(coord) {
   if (coord == 0) return 0;
   let scale = 10000000;
   return coord < 0 ? Math.log(abs(coord / scale)) * -1 * dist_scale : Math.log(coord / scale) * dist_scale;
 }
 
+// Same as above...
 function scaleRadius(radius) {
   let scale = 1000;
   return Math.log((radius / scale) * 2) * rad_scale;
@@ -80,25 +86,21 @@ function setup() {
 }
 
 function draw() {
-  background(255);
+  darkMode = DARK_MODE_TOGGLE.checked;
+  background(darkMode ? 0 : 255);
   translate(windowWidth / 2, windowHeight / 2);
   for (let i = 0; i < planetData.length; i++) {
     let X = scaleDistance(planetData[i].coords.x);
     let Y = scaleDistance(planetData[i].coords.y);
     let D = scaleRadius(planetData[i].radius);
-    let orbit = Math.hypot(X, Y);
-    // Draw Orbits
-    noFill();
-    stroke(0, 15);
-    circle(0, 0, orbit * 2);
     // Draw Bodies
-    fill(255);
+    fill(darkMode ? 0 : 255);
     strokeWeight(2);
-    stroke(0);
+    stroke(darkMode ? 255 : 0);
     circle(X, Y, D);
     //Draw Labels
     noStroke();
-    fill(0);
+    fill(darkMode ? 255 : 0);
     text(planetData[i].body, X, Y - (10 + D / 2));
   }
 }
